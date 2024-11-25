@@ -14,9 +14,11 @@ import ca.spottedleaf.yamlconfig.adapter.primitive.ShortTypeAdapter;
 import ca.spottedleaf.yamlconfig.adapter.primitive.StringTypeAdapter;
 import ca.spottedleaf.yamlconfig.adapter.type.BigDecimalTypeAdapter;
 import ca.spottedleaf.yamlconfig.adapter.type.BigIntegerTypeAdapter;
+import ca.spottedleaf.yamlconfig.adapter.type.DefaultedTypeAdapter;
 import ca.spottedleaf.yamlconfig.adapter.type.DurationTypeAdapter;
 import ca.spottedleaf.yamlconfig.annotation.Adaptable;
 import ca.spottedleaf.yamlconfig.annotation.Serializable;
+import ca.spottedleaf.yamlconfig.type.DefaultedValue;
 import ca.spottedleaf.yamlconfig.type.Duration;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
@@ -61,7 +63,9 @@ public final class TypeAdapterRegistry {
 
         this.adapters.put(BigInteger.class, BigIntegerTypeAdapter.INSTANCE);
         this.adapters.put(BigDecimal.class, BigDecimalTypeAdapter.INSTANCE);
+
         this.adapters.put(Duration.class, DurationTypeAdapter.INSTANCE);
+        this.adapters.put(DefaultedValue.class, DefaultedTypeAdapter.INSTANCE);
     }
 
     public TypeAdapter<?, ?> putAdapter(final Class<?> clazz, final TypeAdapter<?, ?> adapter) {

@@ -1,10 +1,14 @@
-package ca.spottedleaf.yamlconfig.adapter;
+package ca.spottedleaf.yamlconfig.adapter.type;
 
+import ca.spottedleaf.yamlconfig.adapter.TypeAdapter;
+import ca.spottedleaf.yamlconfig.adapter.TypeAdapterRegistry;
 import ca.spottedleaf.yamlconfig.type.DefaultedValue;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
 public final class DefaultedTypeAdapter extends TypeAdapter<DefaultedValue<?>, Object> {
+
+    public static final DefaultedTypeAdapter INSTANCE = new DefaultedTypeAdapter();
 
     private static final String DEFAULT_STRING = "default";
 
