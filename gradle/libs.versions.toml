@@ -1,0 +1,9 @@
+[versions]
+it-unimi-dsi-fastutil = "8.5.13"
+org-slf4j-slf4j-api = "2.0.13"
+org-yaml-snakeyaml = "2.3"
+
+[libraries]
+it-unimi-dsi-fastutil = { module = "it.unimi.dsi:fastutil", version.ref = "it-unimi-dsi-fastutil" }
+org-slf4j-slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "org-slf4j-slf4j-api" }
+org-yaml-snakeyaml = { module = "org.yaml:snakeyaml", version.ref = "org-yaml-snakeyaml" }
