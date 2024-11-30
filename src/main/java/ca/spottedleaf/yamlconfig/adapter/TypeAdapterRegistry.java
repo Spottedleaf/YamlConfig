@@ -124,6 +124,10 @@ public final class TypeAdapterRegistry {
             return;
         }
 
+        if (object instanceof InitialiseHook initialiseHook) {
+            initialiseHook.initialise();
+        }
+
         final TypeAdapter<?, ?> adapter = this.getAdapter(object.getClass());
 
         if (!(adapter instanceof AutoTypeAdapter<?> autoTypeAdapter)) {
@@ -287,10 +291,6 @@ public final class TypeAdapterRegistry {
                     fieldValue = field.field.get(value);
                 } catch (final Exception ex) {
                     throw new RuntimeException(ex);
-                }
-
-                if (fieldValue instanceof InitialiseHook initialiseHook) {
-                    initialiseHook.initialise();
                 }
 
                 this.registry.callInitialisers(fieldValue);
